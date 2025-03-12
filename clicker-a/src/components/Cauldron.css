@@ -1,0 +1,33 @@
+/* src/components/Cauldron.css */
+.cauldron-container {
+  width: 400px;
+  height: 300px;
+  margin-bottom: 1rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.cauldron-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 50%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .cauldron-container {
+    width: 100%;
+    max-width: 350px;
+    height: 250px;
+  }
+}

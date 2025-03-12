@@ -1,42 +1,56 @@
-#root {
-  max-width: 1280px;
+/* src/App.css */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap');
+
+:root {
+  --primary-color: #6A5ACD;
+  --secondary-color: #9370DB;
+  --accent-color: #FF69B4;
+  --background-color: #1E1E2E;
+  --panel-color: #2D2D3F;
+  --text-color: #F8F8FF;
+  --highlight-color: #DDA0DD;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.game-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--highlight-color);
+  text-shadow: 0 0 5px rgba(221, 160, 221, 0.5);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Media Queries */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 0.5rem;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .game-title {
+    font-size: 2rem;
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
