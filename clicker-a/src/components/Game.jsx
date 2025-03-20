@@ -131,42 +131,49 @@ const Game = () => {
       </div>
 
       <div className="game-content">
-        <AnimatePresence initial={false}>
-          {!showUpgrades && (
+        <AnimatePresence mode="wait">
+          {!showUpgrades ? (
             <motion.div
+              key="cauldron"
               className="cauldron-section"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.3 }}
             >
               <Cauldron resources={resources} />
               <Clicker onClick={handleClick} clickPower={clickPower} />
             </motion.div>
+          ) : (
+            <motion.div
+              key="upgrades"
+              className="upgrade-section"
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{
+                type: "spring",
+                stiffness: 200, // Lower stiffness for smoother feel
+                damping: 25,    // Higher damping to prevent oscillation
+                mass: 0.8,      // Lower mass for quicker response
+              }}
+            >
+              <div className="upgrade-header">
+                <h3>Magical Upgrades</h3>
+                <button className="close-button" onClick={toggleUpgrades}>
+                  ✕
+                </button>
+              </div>
+              <UpgradeMenu
+                onUpgrade={handleUpgrade}
+                points={points}
+                clickPower={clickPower}
+                pointsPerSecond={pointsPerSecond}
+                resources={resources}
+              />
+            </motion.div>
           )}
         </AnimatePresence>
-
-        <motion.div
-          className={`upgrade-section ${showUpgrades ? "show" : ""}`}
-          initial={{ x: "100%" }}
-          animate={{ x: showUpgrades ? 0 : "100%" }}
-          transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        >
-          <div className="upgrade-header">
-            <h3>Magical Upgrades</h3>
-            <button className="close-button" onClick={toggleUpgrades}>
-              ✕
-            </button>
-          </div>
-
-          <UpgradeMenu
-            onUpgrade={handleUpgrade}
-            points={points}
-            clickPower={clickPower}
-            pointsPerSecond={pointsPerSecond}
-            resources={resources}
-          />
-        </motion.div>
       </div>
 
       {/* Bottom Navigation Bar for Mobile */}

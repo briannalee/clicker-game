@@ -25,7 +25,7 @@ const Cauldron = ({ resources }) => {
       return `rgb(${r}, ${g}, ${b})`;
     }
     
-    return '#6A5ACD'; // Default purple
+    return '#6A5ACD';
   };
 
   // Generate new bubbles randomly
