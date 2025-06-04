@@ -1,6 +1,7 @@
 // src/components/Clicker.jsx
 import React from 'react';
 import './Clicker.css';
+import mortarPestle from './images/mortar-pestle.svg';
 
 const Clicker = ({ onClick, clickPower }) => {
   return (
@@ -23,7 +24,7 @@ const Clicker = ({ onClick, clickPower }) => {
           },
         }}
       >
-        <img src="./images/mortar-pestle.svg" alt="Brew" className="clicker-icon" />
+        <img src={mortarPestle} alt="Brew" className="clicker-icon" />
         <span className="clicker-text">Brew Magic</span>
       </motion.button>
       <motion.div
