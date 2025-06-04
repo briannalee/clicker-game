@@ -1,7 +1,8 @@
 // src/components/Clicker.jsx
 import React from 'react';
 import './Clicker.css';
-import mortarPestle from './images/mortar-pestle.svg';
+import { motion } from 'framer-motion'
+import mortarPestle from '../../public/images/mortar-pestle.svg';
 
 const Clicker = ({ onClick, clickPower }) => {
   return (
