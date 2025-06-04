@@ -1,6 +1,5 @@
 // src/components/Clicker.jsx
 import React from 'react';
-import { motion } from 'framer-motion';
 import './Clicker.css';
 
 const Clicker = ({ onClick, clickPower }) => {
@@ -24,7 +23,7 @@ const Clicker = ({ onClick, clickPower }) => {
           },
         }}
       >
-        <img src="/images/mortar-pestle.svg" alt="Brew" className="clicker-icon" />
+        <img src="./images/mortar-pestle.svg" alt="Brew" className="clicker-icon" />
         <span className="clicker-text">Brew Magic</span>
       </motion.button>
       <motion.div
